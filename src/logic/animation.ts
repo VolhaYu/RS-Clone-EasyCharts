@@ -36,6 +36,7 @@ const showAnimation = (): void => {
   const animationDiv = document.querySelector('.main-page__animation') as HTMLElement;
 
   const widthBlock = animationDiv.offsetWidth;
+  console.log(widthBlock);
   const numberColumn = Math.floor(widthBlock / (widthColumn + marginColumn));
   creatAnimation(numberColumn);
   const columns = document.getElementsByClassName('animation__chart-column') as HTMLCollectionOf<HTMLElement>;
@@ -53,4 +54,4 @@ export const animationLogic = () => {
     showAnimation();
   }, 1500);
 };
-// animationLogic();
+animationLogic();

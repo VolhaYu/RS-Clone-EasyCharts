@@ -31,4 +31,4 @@ export const renderFooter = (): string => {
   `;
   wrapper.insertAdjacentHTML('beforeend', footer);
   return footer;
-}
+};
