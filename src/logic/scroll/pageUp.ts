@@ -14,7 +14,7 @@ function scroll() {
   });
   window.addEventListener('scroll', () => {
     const circle = document.querySelector('.circle') as HTMLElement;    
-    circle.hidden = (scrollY < document.documentElement.clientHeight)    
+    circle.hidden = (scrollY < document.documentElement.clientHeight);    
   });
 }
 scroll();
