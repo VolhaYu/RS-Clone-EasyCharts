@@ -10,13 +10,16 @@ import { infoPage } from './components/pageInfo/info';
 import { mainPage } from './components/pageMain/main';
 import { animationLogic } from './logic/animation';
 import { converterLogic } from './services/API-converter';
-import { weatherLogic } from './services/API-wether';
+import { weatherLogic } from './services/API-weather';
 import { globalState } from './store/store';
 import { LocalStorageKeys, ViewPage } from './utils/types';
 import { historyResolver } from './logic/routing';
 import { progressBar } from './logic/progressBar';
 import { burgerMenu } from './components/header/header';
 import { getLanguage } from './logic/changeLanguage';
+import { scrollHiddenLoaded, scrollHiddenScrolled } from './logic/scroll';
+
+scrollHiddenLoaded();
 
 if (globalState.view === ViewPage.main) {
   historyResolver(ViewPage.main);
@@ -46,6 +49,7 @@ if (globalState.view === ViewPage.info) {
   await showExamplesBlockInInfo();
   getLanguage();
 }
+
 
 burgerMenu();
 listeners();
@@ -89,4 +93,7 @@ window.addEventListener('popstate', async (event: PopStateEvent): Promise<void> 
   }
 });
 
-window.addEventListener('scroll', progressBar);
+window.addEventListener('scroll', () => {
+  progressBar();
+  scrollHiddenScrolled();
+});
